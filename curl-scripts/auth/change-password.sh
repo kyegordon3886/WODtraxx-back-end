@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# OLDPW="test"
+# NEWPW="testing"
+# TOKEN="04acbb72b5b623145048d0f2ae024dfb"
+
 API="http://localhost:4741"
 URL_PATH="/change-password"
 
