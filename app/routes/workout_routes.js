@@ -27,7 +27,7 @@ router.post('/workouts', requireToken, (req, res, next) => {
 })
 
 // INDEX/GET
-router.get('/workouts', requireToken, (req, res, next) => {
+router.get('/workouts', (req, res, next) => {
   Workout.find()
     .then(workouts => {
       return workouts.map(workout => workout.toObject())
@@ -39,8 +39,10 @@ router.get('/workouts', requireToken, (req, res, next) => {
 })
 
 // SHOW/GET
-router.get('/workouts/:id', requireToken, (req, res, next) => {
-  Workout.findById(req.params.id)
+router.get('/workouts/:name', (req, res, next) => {
+  const nameField = req.params.name
+  Workout.findOne({ name: nameField })
+    // .then(workout => console.log(workout))
     .then(handle404)
     .then(workout => res.status(200).json({ workout: workout.toObject() }))
 
