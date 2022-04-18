@@ -1,6 +1,6 @@
 # **WODtraxx**
 ## **A Simple Workout Logger**
-### *This is the back end api code for the app*
+### *This is the back end api for the app*
 
 ### **Description:**
 Welcome to WODtraxx! This is a full-stack development of  a single page application designed for users to create and log their workouts. It is simple and easy to use, and allows users to not only create and view their workouts, but also to see all the workouts any user has created, if they so choose to try them. It is created as a workout sharing platform in a way. Version one is simple, and without a lot of different user abilities. However, version two is planned to have commenting abilities for users to comment their scores/stats on workouts, as well as create usernames for themselves.
@@ -39,5 +39,5 @@ The user should be able to:
 ### **Entity Relationship Diagram (ERD):**
 [ERD 1](https://imgur.com/rmoL6dR)
 
-### **Link to Repo:**
+### **Link to Application:**
 [WODtraxx App](https://kyegordon3886.github.io/WODtraxx-client/)
