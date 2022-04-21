@@ -19,7 +19,7 @@ router.post('/workouts', requireToken, (req, res, next) => {
 
   Workout.create(req.body.workout)
 
-    .then(workout => {
+    .then((workout) => {
       res.status(201).json({ workout: workout.toObject() })
     })
 
@@ -29,12 +29,12 @@ router.post('/workouts', requireToken, (req, res, next) => {
 // INDEX/GET
 router.get('/workouts', (req, res, next) => {
   Workout.find()
-    .then(workouts => {
-      return workouts.map(workout => workout.toObject())
+    .then((workouts) => {
+      return workouts.map((workout) => workout.toObject())
     })
-    // respond with status 200 and JSON of the examples
-    .then(workouts => res.status(200).json({ workouts: workouts }))
-    // if an error occurs, pass it to the handler
+  // respond with status 200 and JSON of the examples
+    .then((workouts) => res.status(200).json({ workouts: workouts }))
+  // if an error occurs, pass it to the handler
     .catch(next)
 })
 
@@ -42,9 +42,9 @@ router.get('/workouts', (req, res, next) => {
 router.get('/workouts/:name', (req, res, next) => {
   const nameField = req.params.name
   Workout.findOne({ name: nameField })
-    // .then(workout => console.log(workout))
+  // .then(workout => console.log(workout))
     .then(handle404)
-    .then(workout => res.status(200).json({ workout: workout.toObject() }))
+    .then((workout) => res.status(200).json({ workout: workout.toObject() }))
 
     .catch(next)
 })
@@ -55,7 +55,7 @@ router.patch('/workouts/:id', requireToken, removeBlanks, (req, res, next) => {
 
   Workout.findById(req.params.id)
     .then(handle404)
-    .then(workout => {
+    .then((workout) => {
       requireOwnership(req, workout)
 
       return workout.updateOne(req.body.workout)
@@ -69,7 +69,7 @@ router.patch('/workouts/:id', requireToken, removeBlanks, (req, res, next) => {
 router.delete('/workouts/:id', requireToken, (req, res, next) => {
   Workout.findById(req.params.id)
     .then(handle404)
-    .then(workout => {
+    .then((workout) => {
       requireOwnership(req, workout)
       workout.deleteOne()
     })
